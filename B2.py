@@ -4,29 +4,43 @@
 	- bớt x đi 1 đơn vị
 Tìm số bước nhỏ nhất để x = y.
 '''
+import math
 
-def Alo(y,x):
+def div_func(y,x):
+
+    while y > x:
+        y/=2
+    return math.ceil(y)
+
+def GT(y,x):
     try:
-        if x<1 or y<1 or x>y:
+        if x < 1 or y < 1 or x > y:
             print("values invalid")
-        elif x==y:
+        elif x == y:
             print("step = 0")
         else:
-            tmp = x
             count = 0
-            while tmp!=y:
-                tmp*=2
+            while True:
+                value = div_func(y,x)
+                sub = x-value
+                count+=sub
+                x=value*2
                 count+=1
-                print(tmp)
-                while tmp>y:
-                    tmp-=1
+                if x > y:
+                    x-=1
                     count+=1
-                    print(tmp)
-        return print("step = %d" %count)
+                    print("{} number of step = {}".format(x,count))
+                    break
     except:
         print("step = NULL")
 
 if __name__ == '__main__':
-    Alo(16,5)
+    GT(37,5)
 
-    #5x2-1-1x2 = 16 st=4
+
+
+
+
+
+
+
