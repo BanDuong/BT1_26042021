@@ -35,7 +35,9 @@ def GT(y,x):
         print("step = NULL")
 
 if __name__ == '__main__':
-    GT(37,5)
+    GT(5,4)
+
+
 
 
 

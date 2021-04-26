@@ -6,21 +6,21 @@ yêu cầu:
 - không dùng 9 vòng for
 '''
 
-def Div(a,num):
-    tmp=num
-    dv = 100000000
-    while tmp!=0:
-        a.append(int(tmp//dv))
-        tmp = tmp%dv
-        dv/=10
+'''
+    1 + 2 + 34 - 5 + 67 - 8 + 9 = 100
+    1 + 23 - 4 + 56 + 7 + 8 + 9 = 100
+    1 + 23 - 4 + 5 + 6 + 78 - 9 = 100
+    12 + 3 - 4 + 5 + 67 + 8 + 9 = 100
+    .......
+'''
+ops=['','+','-']
 
-def combine(a,b):
-    return a*10+b
+def sum_100(s, i):
+    if i < 10:
+        for o in ops:
+            sum_100(s + o + str(i), i+1)
+    else:
+        if eval(s) == 100:
+            print(s + ' = 100')
 
-def cacul(a):
-    pass
-
-if __name__ == '__main__':
-    #a = []
-    #Div(a,123456789)
-    print(123+45-67+8-9)
+sum_100('1',2)
